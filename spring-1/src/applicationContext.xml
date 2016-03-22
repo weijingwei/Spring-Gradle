@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 	<!-- 配置bean -->
 	<bean id="helloWorld" class="com.wjw.learning.beans.HelloWorld">
@@ -73,4 +75,15 @@
 		</property>
 	</bean>
 	
+	<!-- 配置独立的集合bean，一遍多个bean引用。需要导入namespaces util -->
+	<util:list id="cars">
+		<ref bean="car"/>
+		<ref bean="car2"/>
+	</util:list>
+	
+	<bean id="personImportList" class="com.wjw.learning.beans.collections.Person">
+		<property name="name" value="Jerry"></property>
+		<property name="age" value="27"></property>
+		<property name="cars" ref="cars"></property>
+	</bean>
 </beans>

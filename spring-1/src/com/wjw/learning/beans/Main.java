@@ -31,5 +31,8 @@ public class Main {
 		
 		DataSource ds = (DataSource) ctx.getBean("datasource");
 		System.out.println(ds.getProperties());
+		
+		com.wjw.learning.beans.collections.Person person3 = (com.wjw.learning.beans.collections.Person) ctx.getBean("personImportList");
+		System.out.println(person3);
 	}
 }
