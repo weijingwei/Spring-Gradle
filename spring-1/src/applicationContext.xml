@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
@@ -86,4 +87,7 @@
 		<property name="age" value="27"></property>
 		<property name="cars" ref="cars"></property>
 	</bean>
+	
+	<!-- 通过 namespace p 为bean的属性赋值，先导入p 的namespace -->
+	<bean id="personP" class="com.wjw.learning.beans.collections.Person" p:age="30" p:name="Queen" p:cars-ref="cars"></bean>
 </beans>
