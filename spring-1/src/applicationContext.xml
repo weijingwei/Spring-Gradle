@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 配置bean -->
+	<bean id="helloWorld" class="com.wjw.learning.beans.HelloWorld">
+		<property name="name" value="Spring"></property>
+	</bean>
+
+	<bean id="car" class="com.wjw.learning.beans.Car">
+		<constructor-arg value="Audi" index="0"></constructor-arg>
+		<constructor-arg index="1">
+			<value><![CDATA[<ShangHai^>]]></value>
+		</constructor-arg>
+		<constructor-arg value="300000" type="double"></constructor-arg>
+	</bean>
+
+	<bean id="car2" class="com.wjw.learning.beans.Car">
+		<constructor-arg value="Booma" index="0"></constructor-arg>
+		<constructor-arg value="ShangHai" index="1"></constructor-arg>
+		<constructor-arg value="240" type="int"></constructor-arg>
+	</bean>
+
+	<bean id="person" class="com.wjw.learning.beans.Person">
+		<property name="name" value="Tom"></property>
+		<property name="age" value="24"></property>
+		<!-- <property name="car" ref="car"></property> -->
+		<!-- <property name="car"> <ref bean="car"/> </property> -->
+		<!-- <property name="car">
+			<bean class="com.wjw.learning.beans.Car">
+				<constructor-arg value="Ford" index="0"></constructor-arg>
+				<constructor-arg index="1">
+					<value><![CDATA[<Chang^An>]]></value>
+				</constructor-arg>
+				<constructor-arg value="200000" type="double"></constructor-arg>
+			</bean>
+		</property> -->
+		<property name="car" ref="car"></property>
+		<property name="car.maxSpeed" value="500"></property>
+	</bean>
+</beans>
