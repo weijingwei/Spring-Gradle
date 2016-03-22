@@ -39,4 +39,15 @@
 		<property name="car" ref="car"></property>
 		<property name="car.maxSpeed" value="500"></property>
 	</bean>
+	
+	<bean id="person2" class="com.wjw.learning.beans.collections.Person">
+		<property name="name" value="Jerry"></property>
+		<property name="age" value="27"></property>
+		<property name="cars">
+			<list>
+				<ref bean="car"/>
+				<ref bean="car2"/>
+			</list>
+		</property>
+	</bean>
 </beans>

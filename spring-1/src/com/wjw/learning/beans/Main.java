@@ -20,5 +20,8 @@ public class Main {
 		
 		Person person = (Person) ctx.getBean("person");
 		System.out.println(person);
+		
+		com.wjw.learning.beans.collections.Person person2 = (com.wjw.learning.beans.collections.Person) ctx.getBean("person2");
+		System.out.println(person2);
 	}
 }
