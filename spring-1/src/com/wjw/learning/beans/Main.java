@@ -3,6 +3,8 @@ package com.wjw.learning.beans;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.wjw.learning.beans.collections.DataSource;
+
 public class Main {
 	public static void main(String[] args) {
 		// 1. 创建容器对象
@@ -26,5 +28,8 @@ public class Main {
 
 		com.wjw.learning.beans.collections.Person2Car person2car = (com.wjw.learning.beans.collections.Person2Car) ctx.getBean("person2car");
 		System.out.println(person2car);
+		
+		DataSource ds = (DataSource) ctx.getBean("datasource");
+		System.out.println(ds.getProperties());
 	}
 }
