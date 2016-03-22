@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.wjw.learning.beans.Car;
 
-public class Person2Car {
+public class PersonMapCar {
 	private String name;
 	private int age;
 

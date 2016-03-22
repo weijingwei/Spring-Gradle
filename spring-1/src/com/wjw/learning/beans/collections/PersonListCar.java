@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.wjw.learning.beans.Car;
 
-public class Person {
+public class PersonListCar {
 	private String name;
 	private int age;
 

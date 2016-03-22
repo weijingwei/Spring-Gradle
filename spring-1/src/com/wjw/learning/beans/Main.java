@@ -23,19 +23,19 @@ public class Main {
 		Person person = (Person) ctx.getBean("person");
 		System.out.println(person);
 		
-		com.wjw.learning.beans.collections.Person person2 = (com.wjw.learning.beans.collections.Person) ctx.getBean("person2");
-		System.out.println(person2);
+		com.wjw.learning.beans.collections.PersonListCar personListCar = (com.wjw.learning.beans.collections.PersonListCar) ctx.getBean("personListCar");
+		System.out.println(personListCar);
 
-		com.wjw.learning.beans.collections.Person2Car person2car = (com.wjw.learning.beans.collections.Person2Car) ctx.getBean("person2car");
-		System.out.println(person2car);
+		com.wjw.learning.beans.collections.PersonMapCar personMapCar = (com.wjw.learning.beans.collections.PersonMapCar) ctx.getBean("personMapCar");
+		System.out.println(personMapCar);
 		
 		DataSource ds = (DataSource) ctx.getBean("datasource");
 		System.out.println(ds.getProperties());
 		
-		com.wjw.learning.beans.collections.Person personImportList = (com.wjw.learning.beans.collections.Person) ctx.getBean("personImportList");
+		com.wjw.learning.beans.collections.PersonListCar personImportList = (com.wjw.learning.beans.collections.PersonListCar) ctx.getBean("personImportList");
 		System.out.println(personImportList);
 
-		com.wjw.learning.beans.collections.Person personP = (com.wjw.learning.beans.collections.Person) ctx.getBean("personP");
+		com.wjw.learning.beans.collections.PersonListCar personP = (com.wjw.learning.beans.collections.PersonListCar) ctx.getBean("personP");
 		System.out.println(personP);
 	}
 }

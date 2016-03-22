@@ -43,7 +43,7 @@
 		<property name="car.maxSpeed" value="500"></property>
 	</bean>
 	
-	<bean id="person2" class="com.wjw.learning.beans.collections.Person">
+	<bean id="personListCar" class="com.wjw.learning.beans.collections.PersonListCar">
 		<property name="name" value="Jerry"></property>
 		<property name="age" value="27"></property>
 		<property name="cars">
@@ -54,7 +54,7 @@
 		</property>
 	</bean>
 	
-	<bean id="person2car" class="com.wjw.learning.beans.collections.Person2Car">
+	<bean id="personMapCar" class="com.wjw.learning.beans.collections.PersonMapCar">
 		<property name="name" value="Jerry"></property>
 		<property name="age" value="27"></property>
 		<property name="carMap">
@@ -82,12 +82,12 @@
 		<ref bean="car2"/>
 	</util:list>
 	
-	<bean id="personImportList" class="com.wjw.learning.beans.collections.Person">
+	<bean id="personImportList" class="com.wjw.learning.beans.collections.PersonListCar">
 		<property name="name" value="Jerry"></property>
 		<property name="age" value="27"></property>
 		<property name="cars" ref="cars"></property>
 	</bean>
 	
 	<!-- 通过 namespace p 为bean的属性赋值，先导入p 的namespace -->
-	<bean id="personP" class="com.wjw.learning.beans.collections.Person" p:age="30" p:name="Queen" p:cars-ref="cars"></bean>
+	<bean id="personP" class="com.wjw.learning.beans.collections.PersonListCar" p:age="30" p:name="Queen" p:cars-ref="cars"></bean>
 </beans>
