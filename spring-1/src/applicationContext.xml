@@ -50,4 +50,15 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="person2car" class="com.wjw.learning.beans.collections.Person2Car">
+		<property name="name" value="Jerry"></property>
+		<property name="age" value="27"></property>
+		<property name="carMap">
+			<map>
+				<entry key="AA" value-ref="car"></entry>
+				<entry key="BB" value-ref="car2"></entry>
+			</map>
+		</property>
+	</bean>
 </beans>
