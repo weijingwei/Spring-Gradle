@@ -8,6 +8,7 @@ import com.wjw.learning.beans.autowire.Address;
 public class Main {
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans-relation.xml");
 		Address add = (Address) ctx.getBean("address2");
 		System.out.println(add);
