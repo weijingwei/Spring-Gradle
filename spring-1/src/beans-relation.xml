@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- abstract的bean不能实例化，可以忽略class -->
+	<bean id="address" p:city="北京" p:street="五道口" abstract="true"></bean>
+	<!-- 继承 -->
+	<bean id="address2" class="com.wjw.learning.beans.autowire.Address" parent="address" p:street="大钟寺"></bean>
+	
+	<!-- 依赖 depend-on指明必须依赖一个car。多个依赖可以用逗号或者空格指定多个bean-->
+	<bean id="car" class="com.wjw.learning.beans.autowire.Car" p:brand="奥迪" p:price="300000"></bean>
+	<bean id="person" class="com.wjw.learning.beans.autowire.Person" p:address-ref="address2" depends-on="car"></bean>
+</beans>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- 配置bean -->
+	<bean id="helloWorld" class="com.wjw.learning.beans.HelloWorld">
+		<property name="name" value="Spring"></property>
+	</bean>
+
+	<bean id="car" class="com.wjw.learning.beans.Car">
+		<constructor-arg value="Audi" index="0"></constructor-arg>
+		<constructor-arg index="1">
+			<value><![CDATA[<ShangHai^>]]></value>
+		</constructor-arg>
+		<constructor-arg value="300000" type="double"></constructor-arg>
+	</bean>
+
+	<bean id="car2" class="com.wjw.learning.beans.Car">
+		<constructor-arg value="Booma" index="0"></constructor-arg>
+		<constructor-arg value="ShangHai" index="1"></constructor-arg>
+		<constructor-arg value="240" type="int"></constructor-arg>
+	</bean>
+
+	<bean id="person" class="com.wjw.learning.beans.Person">
+		<property name="name" value="Tom"></property>
+		<property name="age" value="24"></property>
+		<!-- <property name="car" ref="car"></property> -->
+		<!-- <property name="car"> <ref bean="car"/> </property> -->
+		<!-- <property name="car">
+			<bean class="com.wjw.learning.beans.Car">
+				<constructor-arg value="Ford" index="0"></constructor-arg>
+				<constructor-arg index="1">
+					<value><![CDATA[<Chang^An>]]></value>
+				</constructor-arg>
+				<constructor-arg value="200000" type="double"></constructor-arg>
+			</bean>
+		</property> -->
+		<property name="car" ref="car"></property>
+		<property name="car.maxSpeed" value="500"></property>
+	</bean>
+	
+	<bean id="personListCar" class="com.wjw.learning.beans.collections.PersonListCar">
+		<property name="name" value="Jerry"></property>
+		<property name="age" value="27"></property>
+		<property name="cars">
+			<list>
+				<ref bean="car"/>
+				<ref bean="car2"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="personMapCar" class="com.wjw.learning.beans.collections.PersonMapCar">
+		<property name="name" value="Jerry"></property>
+		<property name="age" value="27"></property>
+		<property name="carMap">
+			<map>
+				<entry key="AA" value-ref="car"></entry>
+				<entry key="BB" value-ref="car2"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="datasource" class="com.wjw.learning.beans.collections.DataSource">
+		<property name="properties">
+			<props>
+				<prop key="user">root</prop>
+				<prop key="password">passw0rd</prop>
+				<prop key="jdbcUrl">jdbc:mysql:///test</prop>
+				<prop key="driverClass">com.mysql.jdbc.Dirver</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 配置独立的集合bean，一遍多个bean引用。需要导入namespaces util -->
+	<util:list id="cars">
+		<ref bean="car"/>
+		<ref bean="car2"/>
+	</util:list>
+	
+	<bean id="personImportList" class="com.wjw.learning.beans.collections.PersonListCar">
+		<property name="name" value="Jerry"></property>
+		<property name="age" value="27"></property>
+		<property name="cars" ref="cars"></property>
+	</bean>
+	
+	<!-- 通过 namespace p 为bean的属性赋值，先导入p 的namespace -->
+	<bean id="personP" class="com.wjw.learning.beans.collections.PersonListCar" p:age="30" p:name="Queen" p:cars-ref="cars"></bean>
+</beans>

@@ -1,0 +1,5 @@
+/applicationContext.xml
+/com/
+/beans-autowire.xml
+/beans-relation.xml
+/beans-scope.xml
